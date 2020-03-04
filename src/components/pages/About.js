@@ -7,10 +7,11 @@ class About extends Component {
 			<React.Fragment>
 				<h1>About</h1>
 				<p>
-					This is the TodoList app v1.0.0. It is part of a React Crash
-					Course Tutorial and all the copyrights own to Traversy
-					Media. Video link:
-					https://www.youtube.com/watch?v=sBws8MSXN7A
+					This is the Web CRM system for GoCellar. Copyright reserved.
+					Website programmer: Ning Han
+				</p>
+				<p>
+					Return to <a href="/">Homepage</a>.
 				</p>
 			</React.Fragment>
 		);
