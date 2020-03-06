@@ -56,7 +56,7 @@ class Login extends Component {
 						type="text/css"
 						href="//fonts.googleapis.com/css?family=Dancing+Script"
 					/>
-					GoCellar Web CRM System
+					GoCellar Web
 				</span>
 				<div className="Login-interface">
 					<Form className="Login-item">
@@ -97,6 +97,7 @@ class Login extends Component {
 						<Button
 							variant="primary"
 							type="submit"
+							size="lg"
 							onClick={this.handleLoginClick}
 						>
 							Login
@@ -120,6 +121,10 @@ class Login extends Component {
 							</Button>
 						</Modal.Footer>
 					</Modal>
+					<p className="signup">
+						Don't have an account?{" "}
+						<a href="/signup">Sign up here</a>.
+					</p>
 				</div>
 			</div>
 		);

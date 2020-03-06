@@ -48,10 +48,14 @@
 	padding: 0;
 } */
 
+/* Content for the main pages after logging in. 
+Based on the width of the side bar, 
+the main content needs to be adjusted. */
 .content {
-	width: 85%;
+	width: 75%;
 	height: 100%;
-	margin-left: 500px;
+	/* margin-left: 520px; */
+	float: right;
 }
 
 /* .btn {

@@ -1,10 +1,17 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Route,
+	Redirect,
+	withRouter
+} from "react-router-dom";
 import Dashboard from "./components/pages/Dashboard.js";
 import SideBar from "./components/pages/SideBar";
 import Login from "./components/pages/Login";
+import Signup from "./components/pages/Signup";
 import About from "./components/pages/About";
 import Header from "./components/layout/Header";
+import Account from "./components/pages/Account";
 import uuid from "uuid";
 
 import "./App.css";
@@ -88,7 +95,9 @@ class App extends Component {
 							)}
 						/>
 						<Route path="/login" component={Login} />
+						<Route path="/signup" component={Signup} />
 						<Route path="/about" component={About} />
+						<Route path="/account" component={Account} />
 					</div>
 				</div>
 			</Router>
