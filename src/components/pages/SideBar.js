@@ -20,7 +20,6 @@ import {
 	MdStore,
 	MdLocalBar,
 	MdLocalDining,
-	MdTrendingUp,
 	MdRateReview,
 	MdEvent,
 	MdEqualizer,
@@ -60,7 +59,9 @@ export default withRouter(
 		handleItemClick = (event, pageLink) => {
 			event.preventDefault();
 			console.log("item is clicked");
-			this.handleRedirect(pageLink);
+			if (pageLink !== this.props.location.pathname) {
+				this.handleRedirect(pageLink);
+			}
 		};
 
 		handleRedirect = pageLink => {
@@ -143,7 +144,7 @@ export default withRouter(
 								style={{
 									width: "150px",
 									height: "150px",
-									display: "block",
+									display: "inline-block",
 									marginLeft: "auto",
 									marginRight: "auto"
 								}}
