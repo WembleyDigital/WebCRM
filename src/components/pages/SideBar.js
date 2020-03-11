@@ -176,7 +176,7 @@ export default withRouter(
 						<p
 							id="dashboard"
 							className="menu-item"
-							onClick={e => this.handleItemClick(e, "/")}
+							onClick={e => this.handleItemClick(e, "/dashboard")}
 						>
 							<MdDashboard type="dashboard" /> Dashboard
 						</p>

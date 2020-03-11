@@ -60,7 +60,7 @@ class Login extends Component {
 					GoCellar Web
 				</span>
 				<div className="Login-interface">
-					<Card
+					{/* <Card
 						className="card-sm-1"
 						style={{ width: "35rem", height: "10rem" }}
 					>
@@ -74,7 +74,7 @@ class Login extends Component {
 							</Card.Text>
 							<Button variant="primary">Go somewhere</Button>
 						</Card.Body>
-					</Card>
+					</Card> */}
 					<Form className="Login-item">
 						<Form.Group as={Form.Row}>
 							<Form.Label column sm="3">
