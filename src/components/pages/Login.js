@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Card from "react-bootstrap/Card";
 
 import "../../style/Login.css";
 import Col from "react-bootstrap/Col";
@@ -59,6 +60,21 @@ class Login extends Component {
 					GoCellar Web
 				</span>
 				<div className="Login-interface">
+					<Card
+						className="card-sm-1"
+						style={{ width: "35rem", height: "10rem" }}
+					>
+						<Card.Img variant="top" src="holder.js/100px180" />
+						<Card.Body style={{ textAlign: "right" }}>
+							<Card.Title>Card Title</Card.Title>
+							<Card.Text>
+								Some quick example text to build on the card
+								title and make up the bulk of the card's
+								content.
+							</Card.Text>
+							<Button variant="primary">Go somewhere</Button>
+						</Card.Body>
+					</Card>
 					<Form className="Login-item">
 						<Form.Group as={Form.Row}>
 							<Form.Label column sm="3">
