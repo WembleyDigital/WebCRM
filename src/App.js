@@ -81,8 +81,7 @@ class App extends Component {
 					<div className="con">
 						{/* <Header /> */}
 						<Route
-							exact
-							path="/"
+							path="/dashboard"
 							render={props => (
 								<React.Fragment>
 									{/* <SideBar SideBar={this.SideBar} /> */}
@@ -94,7 +93,7 @@ class App extends Component {
 								</React.Fragment>
 							)}
 						/>
-						<Route path="/login" component={Login} />
+						<Route exact path="/" component={Login} />
 						<Route path="/signup" component={Signup} />
 						<Route path="/about" component={About} />
 						<Route path="/account" component={Account} />
