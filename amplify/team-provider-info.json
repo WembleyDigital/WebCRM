@@ -1,20 +1,20 @@
 {
     "npm": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-gocellar-npm-140848-authRole",
-            "UnauthRoleArn": "arn:aws:iam::261436377155:role/amplify-gocellar-npm-140848-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::261436377155:role/amplify-gocellar-npm-140848-authRole",
+            "AuthRoleName": "amplify-wdtemp-npm-153210-authRole",
+            "UnauthRoleArn": "arn:aws:iam::261436377155:role/amplify-wdtemp-npm-153210-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::261436377155:role/amplify-wdtemp-npm-153210-authRole",
             "Region": "ap-southeast-2",
-            "DeploymentBucketName": "amplify-gocellar-npm-140848-deployment",
-            "UnauthRoleName": "amplify-gocellar-npm-140848-unauthRole",
-            "StackName": "amplify-gocellar-npm-140848",
-            "StackId": "arn:aws:cloudformation:ap-southeast-2:261436377155:stack/amplify-gocellar-npm-140848/a2593530-6345-11ea-baaf-0230a916724e",
-            "AmplifyAppId": "d2joc484nr7xyj"
+            "DeploymentBucketName": "amplify-wdtemp-npm-153210-deployment",
+            "UnauthRoleName": "amplify-wdtemp-npm-153210-unauthRole",
+            "StackName": "amplify-wdtemp-npm-153210",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:261436377155:stack/amplify-wdtemp-npm-153210/4bc25830-6351-11ea-8b94-0a8f6848c516",
+            "AmplifyAppId": "d2ft86g7yudjq9"
         },
         "categories": {
             "hosting": {
                 "amplifyhosting": {
-                    "appId": "d2joc484nr7xyj",
+                    "appId": "d2ft86g7yudjq9",
                     "type": "cicd"
                 }
             }
