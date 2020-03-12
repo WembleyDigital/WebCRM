@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Route,
+	Redirect,
+	withRouter
+} from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -147,4 +152,4 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default withRouter(Login);
