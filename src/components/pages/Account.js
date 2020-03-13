@@ -10,7 +10,7 @@ import SideBar from "./SideBar";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-import "../../style/Account.css";
+import "../../styles/Account.css";
 
 class Account extends Component {
 	state = {};

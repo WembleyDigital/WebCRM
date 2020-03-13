@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 
-import "../../style/Login.css";
+import "../../styles/Login.css";
 import Col from "react-bootstrap/Col";
 
 class Login extends Component {
@@ -31,7 +31,7 @@ class Login extends Component {
 	handleLoginClick = event => {
 		event.preventDefault();
 		if (this.state.username === "asdf" && this.state.password === "zxcv") {
-			this.props.history.push("/");
+			this.props.history.push("/dashboard");
 		} else {
 			this.setState({ modalShow: true });
 		}

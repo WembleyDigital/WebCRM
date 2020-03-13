@@ -11,7 +11,7 @@ import Image from "react-bootstrap/Image";
 
 import { slide as Menu } from "react-burger-menu";
 
-import "../../style/SideBar.css";
+import "../../styles/SideBar.css";
 import {
 	MdDashboard,
 	MdChat,
@@ -390,7 +390,7 @@ export default withRouter(
 						<a id="about" className="menu-item" href="/about">
 							About
 						</a>
-						<a href="/login">Log Out</a>
+						<a href="/">Log Out</a>
 					</Menu>
 				</div>
 			);

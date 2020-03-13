@@ -9,9 +9,60 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
-
 import Col from "react-bootstrap/Col";
-import "../../style/Signup.css";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import MenuItem from "react-bootstrap/DropdownMenu";
+
+import "../../styles/Signup.css";
+import Dropdown from "react-bootstrap/Dropdown";
+
+// The forwardRef is important!!
+// Dropdown needs access to the DOM node in order to position the Menu
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+	<a
+		href=""
+		ref={ref}
+		onClick={e => {
+			e.preventDefault();
+			onClick(e);
+		}}
+	>
+		{children}
+		&#x25bc;
+	</a>
+));
+
+// forwardRef again here!
+// Dropdown needs access to the DOM of the Menu to measure it
+const CustomMenu = React.forwardRef(
+	({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
+		const [value, setValue] = useState("");
+
+		return (
+			<div
+				ref={ref}
+				style={style}
+				className={className}
+				aria-labelledby={labeledBy}
+			>
+				<FormControl
+					autoFocus
+					className="mx-3 my-2 w-auto"
+					placeholder="Type to filter..."
+					onChange={e => setValue(e.target.value)}
+					value={value}
+				/>
+				<ul className="list-unstyled">
+					{React.Children.toArray(children).filter(
+						child =>
+							!value ||
+							child.props.children.toLowerCase().startsWith(value)
+					)}
+				</ul>
+			</div>
+		);
+	}
+);
 
 class Signup extends Component {
 	state = {};
@@ -22,12 +73,12 @@ class Signup extends Component {
 				<Form className="Signup-item">
 					<Form.Group as={Form.Row}>
 						<Form.Label column sm="3">
-							Email address
+							Username
 						</Form.Label>
 						<Col sm="8">
 							<Form.Control
 								type="username"
-								placeholder="Enter username"
+								placeholder="Enter username or email address"
 								onChange={this.handleUsernameChange}
 							/>
 						</Col>
@@ -51,16 +102,53 @@ class Signup extends Component {
 					>
 						We'll never share your password with anyone else.
 					</Form.Text>
-					<Form.Group controlId="formBasicCheckbox">
-						<Form.Check type="checkbox" label="Check me out" />
+					<Form.Group as={Form.Row}>
+						<Form.Label column sm="3">
+							Winery Name
+						</Form.Label>
+						<Col sm="8">
+							<Form.Control
+								type="username"
+								placeholder="Enter and select the winery name that you want to register"
+								onChange={this.handleUsernameChange}
+							/>
+						</Col>
 					</Form.Group>{" "}
+					<DropdownButton
+						variant="default"
+						size="lg"
+						style={{
+							maxHeight: "28px",
+							width: "30%",
+							marginLeft: "auto",
+							marginRight: "auto"
+						}}
+						title={
+							"Select the winary name that you need to register with"
+						}
+						key={1}
+						id="dropdown-size-large"
+					>
+						<Dropdown.Item eventKey="1">Action</Dropdown.Item>
+						<Dropdown.Item eventKey="2">
+							Another action
+						</Dropdown.Item>
+						<Dropdown.Item eventKey="3" active>
+							Active Item
+						</Dropdown.Item>
+						<Dropdown.Divider />
+						<Dropdown.Item eventKey="4">
+							Separated link
+						</Dropdown.Item>
+					</DropdownButton>{" "}
 					<Button
 						variant="primary"
 						type="submit"
 						size="lg"
+						className="submitBtn"
 						onClick={this.handleLoginClick}
 					>
-						Login
+						Submit
 					</Button>
 				</Form>
 			</div>

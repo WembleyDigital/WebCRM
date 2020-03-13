@@ -5,7 +5,7 @@ import SideBar from "./SideBar";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-import "../../style/Dashboard.css";
+import "../../styles/Dashboard.css";
 
 class Dashboard extends Component {
 	render() {

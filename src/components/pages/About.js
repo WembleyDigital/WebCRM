@@ -11,8 +11,9 @@ class About extends Component {
 					Website programmer: Ning Han
 				</p>
 				<p>
-					Return to <a href="/">Homepage</a>.
+					Return to <a href="/dashboard">Homepage</a>.
 				</p>
+				<p>"build": "react-scripts build",</p>
 			</React.Fragment>
 		);
 	}

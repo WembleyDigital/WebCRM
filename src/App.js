@@ -5,18 +5,19 @@ import {
 	Redirect,
 	withRouter
 } from "react-router-dom";
-import Dashboard from "./components/pages/Dashboard.js";
+
+import Header from "./components/layout/Header";
+import Dashboard from "./components/pages/Dashboard";
 import SideBar from "./components/pages/SideBar";
 import Login from "./components/pages/Login";
 import Signup from "./components/pages/Signup";
 import About from "./components/pages/About";
-import Header from "./components/layout/Header";
 import Account from "./components/pages/Account";
 import uuid from "uuid";
 
-import "./App.css";
+import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Axios from "axios";
+// import Axios from "axios";
 
 class App extends Component {
 	state = {
@@ -40,9 +41,9 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		Axios.get(
-			"https://jsonplaceholder.typicode.com/Dashboard?_limit=10"
-		).then(res => this.setState({ Dashboard: res.data }));
+		// Axios.get(
+		// 	"https://jsonplaceholder.typicode.com/Dashboard?_limit=10"
+		// ).then(res => this.setState({ Dashboard: res.data }));
 	}
 
 	// Toggle Complete
@@ -84,7 +85,7 @@ class App extends Component {
 							path="/dashboard"
 							render={props => (
 								<React.Fragment>
-									{/* <SideBar SideBar={this.SideBar} /> */}
+									<SideBar SideBar={this.SideBar} />
 									<Dashboard
 										Dashboard={this.state.Dashboard}
 										markComplete={this.markComplete}
