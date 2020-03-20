@@ -1,40 +1,28 @@
-const express = require('express')
-const app = express()
+const serverless = require('serverless-http');
+const express = require('express');
+const app = express();
+
 const morgan = require('morgan')
-const Sequelize = require('sequelize');
-const mongoose = require('mongoose');
+// const mysql = require('mysql');
 const cors = require('cors')
 
+const PORT = process.env.PORT || 5000
 
-const connection = mysql.
-const sequelize = new Sequelize('database', 'username','password',{
-    host: 'localhost',
-    dialect: 'mysql'
-}) ;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-sequelize.authenticate().then(
-    () => {
-       console.log('Connection has been established successfully.');
-    })
-    .catch((eer) => {
-        console.error('Unable to connect to the database', err);
-    });
-
-
-
-
-
-
-const PORT = 5000
-
-app.use(express.json())
 app.use(morgan('dev'))
 
 
 
+app.get('/api/info', (req, res) => {
+  res.send({ application: 'sample-app', version: '1' });
+});
+app.post('/api/v1/getback', (req, res) => {
+  res.send({ ...req.body });
+
+  app.listen(PORT, () => console.log(`Listening on: 5000`))
+
+  module.exports.handler = serverless(app);
 
 
-
-
-
-app.listen(PORT, () => console.log(`listening on port ${PORT}`))
