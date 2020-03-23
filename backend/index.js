@@ -3,7 +3,7 @@ const express = require('express');
 var SequelizeAuto = require('sequelize-auto')
 const app = express();
 const morgan = require('morgan')
-
+const models = require('./mySQL_demo/models')
 // const mysql = require('mysql');
 const cors = require('cors')
 
@@ -45,7 +45,21 @@ app.use(morgan('dev'))
 // app.post('/api/v1/getback', (req, res) => {
 //   res.send({ ...req.body });
 
-  app.listen(PORT, () => console.log(`Listening on: 5000`))
+models.sequelize.sync().then(function() {
+  /**
+   * Listen on provided port, on all network interfaces.
+   */
+  server.listen(PORT, function() {
+      debug('Express server listening on port ' + server.address().PORT);
+  });
+  server.on('error', onError);
+  server.on('listening', onListening);
+});
+
+
 
   // module.exports.handler = serverless(app);
 
+
+
+  // app.listen(PORT, () => console.log(`Listening on: 5000`))
