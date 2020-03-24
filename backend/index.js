@@ -3,15 +3,16 @@ const express = require('express');
 // const route = require("./routers/vineyard-router")
 // const Sequelize = require('sequelize');
 var SequelizeAuto = require('sequelize-auto')
+const models = require('./mySQL_demo/models')
 const app = express();
 const morgan = require('morgan')
 
 // const mysql = require('mysql');
 const cors = require('cors')
 
-const PORT = process.env.PORT || 5000
-
-const auto = new SequelizeAuto('gocellar', 'root', 'm6513M4178', {
+// const PORT = process.env.PORT || 5000
+// const auto = new SequelizeAuto('gocellar', 'root', 'm6513M4178');
+auto = new SequelizeAuto('gocellar', 'root', 'm6513M4178', {
     host: 'localhost',
     dialect: 'mysql',
     directory: './mySQL_demo/models', // prevents the program from writing to disk
@@ -19,18 +20,10 @@ const auto = new SequelizeAuto('gocellar', 'root', 'm6513M4178', {
     additional: {
         timestamps: false
         //...
-    },
-    tables: ['table1', 'table2', 'table3']
-    //...
+    }
+   
 })
 
-
-auto.run(function (err) {
-    if (err) throw err;
-  
-    console.log(auto.tables); // table list
-    console.log(auto.foreignKeys); // foreign key list
-  });
 
 
 
@@ -62,5 +55,5 @@ app.use(morgan('dev'))
 
   // module.exports.handler = serverless(app);
 
-//   app.use('/', require('./routers/vineyard-router'))
+  app.use('/', require('./routers/vineyard-router'))
   app.listen(PORT, () => console.log(`Listening on: 5000`))
