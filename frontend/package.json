@@ -30,7 +30,7 @@
 	"scripts": {
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"start": "webpack-dev-server --mode development --open",
+		"start": "webpack-dev-server --mode development --open --hot",
 		"build": "webpack --mode production"
 	},
 	"eslintConfig": {
