@@ -14,6 +14,7 @@ import Signup from "./components/pages/Signup";
 import About from "./components/pages/About";
 import Account from "./components/pages/Account";
 import uuid from "uuid";
+import test from "./components/pages/test"
 
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
