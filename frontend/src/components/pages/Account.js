@@ -43,6 +43,11 @@ class Account extends Component {
 		console.log("change to: ", this.state.Name);
 	};
 
+	// handleSelectState = e => {
+	// 	this.setState({ State: e.target.value });
+	// 	console.log("change to: ", this.state.State);
+	// };
+
 	render() {
 		return (
 			<div>
@@ -82,7 +87,7 @@ class Account extends Component {
 									className="formName"
 									controlId="formGridName"
 								>
-									<Form.Label as={Form.col} size="lg" lg={2}>
+									<Form.Label as={Form.col} size="lg">
 										Name
 									</Form.Label>
 									<Form.Control
@@ -132,6 +137,7 @@ class Account extends Component {
 										placeholder={this.state.State}
 										readOnly={!this.state.inEditMode}
 										size="lg"
+										// onSelect={this.handleSelectState}
 									>
 										<option>Victoria</option>
 										<option>New South Wales</option>
