@@ -235,10 +235,8 @@ export default withRouter(
 						</div>
 						<p
 							id="roles"
-							// onClick={this.showSettings}
 							className="menu-item--small"
-							href="/"
-							onClick={this.handleItemClick}
+							onClick={e => this.handleItemClick(e, "/allroles")}
 						>
 							<MdSupervisorAccount type="supervisor" /> All Roles
 						</p>
