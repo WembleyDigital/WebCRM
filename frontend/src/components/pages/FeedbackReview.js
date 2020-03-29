@@ -12,7 +12,7 @@ import SearchField from "react-search-field";
 
 import "../../styles/AllRoles.scss";
 
-class AllRoles extends Component {
+class FeedbackReview extends Component {
   state = {
     searchKeyWord: ""
   };
@@ -27,14 +27,7 @@ class AllRoles extends Component {
         <SideBar SideBar={this.SideBar} />
         <div className="content">
           <div className="header">
-            <h1 style={{ textAlign: "left" }}>All Roles</h1>
-            <Button
-              variant="primary"
-              size="lg"
-              style={{ float: "right", marginRight: "2em" }}
-            >
-              Create Role
-            </Button>
+            <h1 style={{ textAlign: "left" }}>Feedback Reviews</h1>
           </div>{" "}
           <div className="body">
             <SearchField
@@ -48,10 +41,11 @@ class AllRoles extends Component {
             <Table striped bordered hover responsive variant="dark">
               <thead>
                 <tr>
-                  <th>Username</th>
-                  <th>Role</th>
-                  <th>Email</th>
-                  <th>Create Date</th>
+                  <th>Review ID</th>
+                  <th>Customer</th>
+                  <th>Type of Feedback</th>
+                  <th>Description</th>
+                  <th>Date Created</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -61,9 +55,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -71,9 +70,14 @@ class AllRoles extends Component {
                   <td>Jacob</td>
                   <td>Thornton</td>
                   <td>@fat</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -81,9 +85,14 @@ class AllRoles extends Component {
                   <td>Larry</td>
                   <td>the Bird</td>
                   <td>@twitter</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -91,9 +100,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -101,9 +115,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -111,9 +130,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -121,9 +145,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -131,9 +160,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -141,9 +175,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -151,9 +190,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -161,9 +205,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -171,9 +220,14 @@ class AllRoles extends Component {
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>1.1.1</td>
+                  <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <p>View</p>
+                    </Button>
+                    <Button variant="info">
+                      <p>More</p>
+                    </Button>
                   </td>
                 </tr>
               </tbody>
@@ -185,4 +239,4 @@ class AllRoles extends Component {
   }
 }
 
-export default withRouter(AllRoles);
+export default withRouter(FeedbackReview);

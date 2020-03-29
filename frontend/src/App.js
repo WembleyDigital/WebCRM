@@ -14,11 +14,18 @@ import Signup from "./components/pages/Signup";
 import About from "./components/pages/About";
 import Account from "./components/pages/Account";
 import AllRoles from "./components/pages/AllRoles";
+import Customers from "./components/pages/Customers";
+import Billing from "./components/pages/Billing";
 import uuid from "uuid";
 import test from "./components/pages/test";
 
 import "./styles/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Events from "./components/pages/Events";
+import Products from "./components/pages/Products";
+import FeedbackReview from "./components/pages/FeedbackReview";
+import ProductReview from "./components/pages/ProductReview";
+import Suppliers from "./components/pages/Suppliers";
 
 // import Axios from "axios";
 
@@ -102,6 +109,13 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/account" component={Account} />
             <Route path="/allroles" component={AllRoles} />
+            <Route path="/customers" component={Customers} />
+            <Route path="/suppliers" component={Suppliers} />
+            <Route path="/billing" component={Billing} />
+            <Route path="/events" component={Events} />
+            <Route path="/products" component={Products} />
+            <Route path="/feedback_review" component={FeedbackReview} />
+            <Route path="/product_review" component={ProductReview} />
           </div>
         </div>
       </Router>
