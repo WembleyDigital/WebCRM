@@ -11,8 +11,9 @@ import Table from "react-bootstrap/Table";
 import SearchField from "react-search-field";
 
 import "../../styles/AllRoles.scss";
+import { MdChat, MdEmail } from "react-icons/md";
 
-class AllRoles extends Component {
+class Customers extends Component {
   state = {
     searchKeyWord: ""
   };
@@ -27,14 +28,7 @@ class AllRoles extends Component {
         <SideBar SideBar={this.SideBar} />
         <div className="content">
           <div className="header">
-            <h1 style={{ textAlign: "left" }}>All Roles</h1>
-            <Button
-              variant="primary"
-              size="lg"
-              style={{ float: "right", marginRight: "2em" }}
-            >
-              Create Role
-            </Button>
+            <h1 style={{ textAlign: "left" }}>Customers</h1>
           </div>{" "}
           <div className="body">
             <SearchField
@@ -48,10 +42,10 @@ class AllRoles extends Component {
             <Table striped bordered hover responsive variant="dark">
               <thead>
                 <tr>
-                  <th>Username</th>
-                  <th>Role</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Contact Number</th>
                   <th>Email</th>
-                  <th>Create Date</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -62,8 +56,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -72,8 +70,12 @@ class AllRoles extends Component {
                   <td>Thornton</td>
                   <td>@fat</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -82,8 +84,12 @@ class AllRoles extends Component {
                   <td>the Bird</td>
                   <td>@twitter</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -92,8 +98,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -102,8 +112,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -112,8 +126,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -122,8 +140,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -132,8 +154,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -142,8 +168,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -152,8 +182,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -162,8 +196,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -172,8 +210,12 @@ class AllRoles extends Component {
                   <td>Otto</td>
                   <td>1.1.1</td>
                   <td>
-                    <Button variant="info">Edit</Button>
-                    <Button variant="info">View</Button>
+                    <Button variant="info">
+                      <MdEmail />
+                    </Button>
+                    <Button variant="info">
+                      <MdChat />
+                    </Button>
                   </td>
                 </tr>
               </tbody>
@@ -185,4 +227,4 @@ class AllRoles extends Component {
   }
 }
 
-export default withRouter(AllRoles);
+export default withRouter(Customers);
