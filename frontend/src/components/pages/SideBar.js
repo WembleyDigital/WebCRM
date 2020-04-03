@@ -246,7 +246,7 @@ export default withRouter(
                 id="winery"
                 className="menu-item"
                 href="/"
-                onClick={this.handleItemClick}
+                onClick={e => this.handleItemClick(e, "/suppliers_winery")}
               >
                 Winery
               </p>
@@ -295,16 +295,14 @@ export default withRouter(
               <p
                 id="orders"
                 className="menu-item"
-                href="/"
-                onClick={this.handleItemClick}
+                onClick={e => this.handleItemClick(e, "/orders")}
               >
                 Orders
               </p>
               <p
                 id="invoices"
                 className="menu-item"
-                href="/"
-                onClick={this.handleItemClick}
+                onClick={e => this.handleItemClick(e, "/invoices")}
               >
                 Invoices
               </p>
@@ -368,7 +366,7 @@ export default withRouter(
               id="reports"
               className="menu-item"
               href="/"
-              onClick={this.handleItemClick}
+              onClick={e => this.handleItemClick(e, "/reports")}
             >
               <MdLibraryBooks type="libraryBooks" /> Reports
             </p>

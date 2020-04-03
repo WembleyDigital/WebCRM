@@ -16,16 +16,21 @@ import Account from "./components/pages/Account";
 import AllRoles from "./components/pages/AllRoles";
 import Customers from "./components/pages/Customers";
 import Billing from "./components/pages/Billing";
-import uuid from "uuid";
-import test from "./components/pages/test";
-
-import "./styles/App.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Events from "./components/pages/Events";
 import Products from "./components/pages/Products";
 import FeedbackReview from "./components/pages/FeedbackReview";
 import ProductReview from "./components/pages/ProductReview";
 import Suppliers from "./components/pages/Suppliers";
+import uuid from "uuid";
+import test from "./components/pages/test";
+
+import "./styles/App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Report from "./components/pages/Report";
+import Invoices from "./components/pages/Invoices";
+import Orders from "./components/pages/Orders";
+import SuppliersWinery from "./components/pages/SuppliersWinery";
+import WineryDetail from "./components/pages/WineryDetail";
 
 // import Axios from "axios";
 
@@ -116,6 +121,11 @@ class App extends Component {
             <Route path="/products" component={Products} />
             <Route path="/feedback_review" component={FeedbackReview} />
             <Route path="/product_review" component={ProductReview} />
+            <Route path="/reports" component={Report} />
+            <Route path="/invoices" component={Invoices} />
+            <Route path="/orders" component={Orders} />
+            <Route path="/suppliers_winery" component={SuppliersWinery} />
+            <Route path="/suppliers_winery_detail" component={WineryDetail} />
           </div>
         </div>
       </Router>
