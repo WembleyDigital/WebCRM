@@ -23,37 +23,46 @@ const PORT = process.env.PORT || 5000
 //     }
 // })
 
-const mysql  = require('mysql');  
+// const mysql  = require('mysql');  
  
-const connection = mysql.createConnection({     
-  host     : 'localhost',       
-  user     : 'root',              
-  password : 'm6513M4178',       
-  port: '3306',                   
-  database: 'gocellar' 
-}); 
+// const connection = mysql.createPool({     
+//   host     : 'localhost',       
+//   user     : 'root',              
+//   password : 'm6513M4178',       
+//   port: '3306',                   
+//   database: 'gocellar' 
+// }); 
  
-connection.connect();
+// connection.getConnection(function(err){
+//   if(err){
+//     console.log('failed');
+//   }else{
+//     console.log('success')
+  
+//   }
+// });
  
-var  sql = 'SELECT * FROM vineyard WHERE id = 1';
-//查
-connection.query(sql,function (err, result) {
-        if(err){
-          console.log('[SELECT ERROR] ： ',err.message);
-          return;
-        }
+// var  sql = 'SELECT * FROM vineyard WHERE id = 1';
+// //查
+// connection.query(sql,function (err, result) {
+//         if(err){
+//           console.log('[SELECT ERROR] ： ',err.message);
+//           return;
+//         }
       
-      vineyard = result[0]
-      // console.log(Object.values(vineyard))
-      // console.log (vineyard.id)
+//       vineyard = result[0]
+//       console.log(vineyard)
+//     });
+//       // console.log(Object.values(vineyard))
+//       // console.log (vineyard.id)
        
-      // JSON.stringify(JSON.parse(results))
-      //  const str=JSON.stringify(result)
-      //  console.log(str)
-      //  const json =  JSON.parse(str)
-      //  console.log(json)
-      //  console.log(json[0].id)
-});
+//       // JSON.stringify(JSON.parse(results))
+//       //  const str=JSON.stringify(result)
+//       //  console.log(str)
+//       //  const json =  JSON.parse(str)
+//       //  console.log(json)
+//       //  console.log(json[0].id)
+
 
 
 
@@ -78,31 +87,15 @@ app.use(express.json());
 app.use(morgan('dev'))
 
 
-app.get('/', (req, res) => {
-  res.send(vineyard)
-})
-// app.get('/api/info', (req, res) => {
-//   res.send({ application: 'sample-app', version: '1' });
-// });
-// app.post('/api/v1/getback', (req, res) => {
-//   res.send({ ...req.body });
 
-// models.sequelize.sync().then(function() {
-//   /**
-//    * Listen on provided port, on all network interfaces.
-//    */
-//   server.listen(PORT, function() {
-//       debug('Express server listening on port ' + server.address().PORT);
-//   });
-//   server.on('error', onError);
-//   server.on('listening', onListening);
-// });
 
 
 
   // module.exports.handler = serverless(app);
 
-  // app.use(require('./routers/vineyard-router'))
+  app.use('/', require('./routers/vineyard-router'))
   app.listen(PORT, () => console.log(`Listening on: 5000`))
 
-  module.exports = app
+  // module.exports = app
+
+  // module.exports = connection

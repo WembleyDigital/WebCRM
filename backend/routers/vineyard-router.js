@@ -1,31 +1,36 @@
 const express = require('express');
 const router = express.Router(); // create a router
+const connection = require('../db')
 
 router.get('/vineyard/all', async (req, res) => { // 
   try {
-    var  sql = 'SELECT * FROM gocellar.vineyard';
-    const vineyard = connection.query(sql, function (err, result) {
-      if(err){
-        console.log('[SELECT ERROR] ： ',err.message);
-        return;
-      }
-    
-    vineyard = result[0]
-    console.log(Object.values(vineyard))
-    console.log (vineyard.id)
+
+    var  sql = 'SELECT * FROM vineyard WHERE id = 1';
+    //查
+    connection.query(sql,function (err, result) {
+            if(err){
+              console.log('[SELECT ERROR] ： ',err.message);
+              return;
+            }
+          
+          vineyard = result[0]
+          console.log(vineyard)
+        });
+//     // console.log(Object.values(vineyard))
+//     // console.log (vineyard.id)
      
-    // JSON.stringify(JSON.parse(results))
-    //  const str=JSON.stringify(result)
-    //  console.log(str)
-    //  const json =  JSON.parse(str)
-    //  console.log(json)
-    //  console.log(json[0].id)
-});
+//     // JSON.stringify(JSON.parse(results))
+//     //  const str=JSON.stringify(result)
+//     //  console.log(str)
+//     //  const json =  JSON.parse(str)
+//     //  console.log(json)
+//     //  console.log(json[0].id)
+
     
     res.send(vineyard)
 
     // res.send('helloooo')
-  } catch(err) {
+  }catch(err) {
     res.status(500).send(err)
     }
 })
