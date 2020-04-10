@@ -20,19 +20,27 @@
   /* background: #ffffff; */
   opacity: 70%;
   width: 50%;
-  height: 500px;
+  height: 35em;
 }
 
 .Login-item {
-  padding-top: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   width: 100%;
+
 }
 
-.form-group {
-  margin-top: 3%;
+.form-control {
+  padding-top: auto;
+  padding-bottom: auto;
 }
 
 .form-row {
+  width: 70% !important;
+  height: 100%;
+}
+
+.form-user-role{
   width: 70% !important;
 }
 
