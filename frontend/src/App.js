@@ -4,8 +4,9 @@ import {
 	Route,
 	Switch,
 	Redirect,
-	withRouter,
+	withRouter
 } from "react-router-dom";
+import regeneratorRuntime from "regenerator-runtime";
 
 import Header from "./components/layout/Header";
 import Dashboard from "./components/pages/Dashboard";
@@ -58,7 +59,7 @@ class App extends Component {
 		],
 		Username: "",
 		Password: "",
-		Role: "",
+		Role: ""
 	};
 
 	componentDidMount() {
@@ -67,33 +68,31 @@ class App extends Component {
 		// ).then(res => this.setState({ Dashboard: res.data }));
 	}
 
-	updateUsername = (username) => {
+	updateUsername = username => {
 		this.setState({ Username: username });
 	};
 
-	updatePassword = (password) => {
+	updatePassword = password => {
 		this.setState({ Password: password });
 	};
 
-	updateRole = (role) => {
+	updateRole = role => {
 		this.setState({ Role: role });
 	};
 
 	// Delete Todo
-	delTodo = (id) => {
+	delTodo = id => {
 		this.setState({
-			Dashboard: [
-				...this.state.Dashboard.filter((todo) => todo.id !== id),
-			],
+			Dashboard: [...this.state.Dashboard.filter(todo => todo.id !== id)]
 		});
 	};
 
 	// Add Todo
-	SideBar = (title) => {
+	SideBar = title => {
 		const newTodo = {
 			id: uuid.v4(),
 			title,
-			completed: false,
+			completed: false
 		};
 		this.setState({ Dashboard: [...this.state.Dashboard, newTodo] });
 	};
@@ -118,7 +117,7 @@ class App extends Component {
 						<Switch>
 							<Route
 								path="/dashboard"
-								render={(props) => (
+								render={props => (
 									<React.Fragment>
 										{/* <SideBar SideBar={this.SideBar} /> */}
 										<Dashboard

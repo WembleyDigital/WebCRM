@@ -1,242 +1,121 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  withRouter
+	BrowserRouter as Router,
+	Route,
+	Redirect,
+	withRouter,
 } from "react-router-dom";
 import SideBar from "./SideBar";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import SearchField from "react-search-field";
 
-import "../../styles/AllRoles.scss";
+import "../../styles/Events.scss";
 
 class Events extends Component {
-  state = {
-    searchKeyWord: ""
-  };
+	state = {
+		searchKeyWord: "",
+		event_data: [],
+		wineries: [],
+	};
 
-  onChange = value => {
-    this.setState({ searchKeyWord: value });
-  };
+	onChange = (value) => {
+		this.setState({ searchKeyWord: value });
+	};
 
-  render() {
-    return (
-      <div>
-        <SideBar SideBar={this.SideBar} />
-        <div className="content">
-          <div className="header">
-            <h1 style={{ textAlign: "left" }}>Events</h1>
-          </div>{" "}
-          <div className="body">
-            <SearchField
-              placeholder="Search..."
-              onChange={this.onChange}
-              value={this.state.searchKeyWord}
-              searchText=""
-              classNames="search-field"
-            />
+	async componentDidMount() {
+		try {
+			/* fetch event list and save it to state as event_data*/
+			var url =
+				"https://dy4v35a040.execute-api.ap-southeast-2.amazonaws.com/latest/home/event";
+			var response = await fetch(url);
+			var data = await response.json();
+			await this.setState({ event_data: data.date });
+			/* fetch winery list and save it to state as wineries*/
+			var url =
+				"https://dy4v35a040.execute-api.ap-southeast-2.amazonaws.com/latest/home/winery";
+			var response = await fetch(url);
+			var data = await response.json();
+			await this.setState({ wineries: data });
+		} catch (err) {
+			console.log(err);
+		}
+	}
 
-            <Table striped bordered hover responsive variant="dark">
-              <thead>
-                <tr>
-                  <th>Event Name</th>
-                  <th>Event Org</th>
-                  <th>Event Date</th>
-                  <th>Start from</th>
-                  <th>Price per person</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>1.1.1</td>
-                  <td>1.1.1</td>
-                  <td>
-                    <Button variant="info">
-                      <p>View</p>
-                    </Button>
-                    <Button variant="info">
-                      <p>More</p>
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </div>
-        </div>
-      </div>
-    );
-  }
+	render() {
+		console.log(this.state.event_data);
+		return (
+			<div>
+				<SideBar SideBar={this.SideBar} />
+				<div className="content">
+					<div className="header">
+						<h1 style={{ textAlign: "left" }}>Events</h1>
+					</div>{" "}
+					<div className="body">
+						<SearchField
+							placeholder="Search..."
+							onChange={this.onChange}
+							value={this.state.searchKeyWord}
+							searchText=""
+							classNames="search-field"
+						/>
+
+						<Table striped bordered hover responsive variant="dark">
+							<thead>
+								<tr>
+									<th>Event Name</th>
+									<th>Event Org</th>
+									<th>Event Date</th>
+									<th>Start From</th>
+									<th>Maximum Population</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{this.state.event_data.map((item, key) => (
+									<tr key={key}>
+										<td>{item.title}</td>
+										<td>
+											{this.state.wineries
+												.filter(
+													(winery) =>
+														item.winery_id ===
+														winery.id
+												)
+												.map(
+													(winery) =>
+														winery.Alphabetical_Index
+												)}
+										</td>
+										<td>{item.eventDate}</td>
+										<td>{item.startPeriod}</td>
+										<td>{item.maximum_population}</td>
+										<td>
+											<Button
+												className="event_btn"
+												variant="info"
+												size="sm"
+												onClick={this.handleEventView}
+											>
+												<p>View</p>
+											</Button>
+											<Button
+												className="event_btn"
+												variant="info"
+												size="sm"
+											>
+												<p>More</p>
+											</Button>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</Table>
+					</div>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default withRouter(Events);

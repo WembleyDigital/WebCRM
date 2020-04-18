@@ -3,7 +3,7 @@ import {
 	BrowserRouter as Router,
 	Route,
 	Redirect,
-	withRouter,
+	withRouter
 } from "react-router-dom";
 import SideBar from "./SideBar";
 import Button from "react-bootstrap/Button";
@@ -17,18 +17,18 @@ import "../../styles/Products.scss";
 class Products extends Component {
 	state = {
 		searchKeyWord: "",
-		eventOnHide: true,
+		eventOnHide: true
 	};
 
-	onChange = (value) => {
+	onChange = value => {
 		this.setState({ searchKeyWord: value });
 	};
 
-	createProduct = (event) => {
+	createProduct = event => {
 		this.setState({ eventOnHide: false });
 	};
 
-	cancelCreateProduct = (event) => {
+	cancelCreateProduct = event => {
 		this.setState({ eventOnHide: true });
 	};
 
@@ -103,10 +103,10 @@ class Products extends Component {
 									<Form.Row>
 										<Form.Group
 											as={Form.col}
-											controlId="formGridAddress1"
+											controlId="formGridProductYear"
 										>
 											<Form.Label size="sm">
-												Address 1
+												Product Year
 											</Form.Label>
 											<Form.Control
 												placeholder={this.state.Address}
@@ -115,10 +115,10 @@ class Products extends Component {
 										</Form.Group>
 										<Form.Group
 											as={Form.col}
-											controlId="formGridAddress2"
+											controlId="formGridCostOfPrice"
 										>
 											<Form.Label size="sm">
-												Address 2
+												Cost of Price
 											</Form.Label>
 											<Form.Control
 												placeholder={this.state.Address}
@@ -127,10 +127,10 @@ class Products extends Component {
 										</Form.Group>
 										<Form.Group
 											as={Form.col}
-											controlId="formGridCity"
+											controlId="formGridPrice"
 										>
 											<Form.Label size="sm">
-												City
+												Price
 											</Form.Label>
 											<Form.Control
 												placeholder={this.state.City}
@@ -141,124 +141,166 @@ class Products extends Component {
 									<Form.Row>
 										<Form.Group
 											as={Form.col}
-											controlId="formGridState"
+											controlId="formGridCurrentStock"
 										>
 											<Form.Label size="sm">
-												State
+												Current Stock
+											</Form.Label>
+											<Form.Control
+												placeholder={this.state.City}
+												size="sm"
+											/>
+										</Form.Group>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridThreshold"
+										>
+											<Form.Label size="sm">
+												Threshold
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridVolume"
+										>
+											<Form.Label size="sm">
+												Volume
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+									</Form.Row>
+									<Form.Row>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridBottlesPerCase"
+										>
+											<Form.Label size="sm">
+												Bottles Per Case
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridAlcohol"
+										>
+											<Form.Label size="sm">
+												Alcohol
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridStandartDerinks"
+										>
+											<Form.Label size="sm">
+												Standart Derinks
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+									</Form.Row>
+									<Form.Row>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridSightRating"
+										>
+											<Form.Label size="sm">
+												Rating (Sight)
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridNoseRating"
+										>
+											<Form.Label size="sm">
+												Rating (Nose)
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+										<Form.Group
+											as={Form.col}
+											controlId="formGridPalateRating"
+										>
+											<Form.Label size="sm">
+												Rating (Palate)
+											</Form.Label>
+											<Form.Control
+												placeholder={
+													this.state.Postcode
+												}
+												size="sm"
+											/>
+										</Form.Group>
+									</Form.Row>
+									<Form.Row>
+										{" "}
+										<Form.Group
+											controlId="formGridFoodPairing"
+											md="5"
+											className="food_pairing"
+										>
+											<Form.Label size="sm">
+												Food Pairing (Choose Multiple)
 											</Form.Label>
 											<Form.Control
 												as="select"
-												value="Choose..."
-												placeholder={this.state.State}
+												multiple
+												placeholder={
+													this.state.Postcode
+												}
 												size="sm"
-												// onSelect={this.handleSelectState}
 											>
-												<option>Victoria</option>
-												<option>New South Wales</option>
-												<option>Tasmania</option>
-												<option>Queensland</option>
-												<option>
-													Western Australia
-												</option>
-												<option>South Australia</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
 											</Form.Control>
 										</Form.Group>
-										<Form.Group
-											as={Form.col}
-											controlId="formGridPostcode"
-										>
-											<Form.Label size="sm">
-												Postcode
-											</Form.Label>
-											<Form.Control
-												placeholder={
-													this.state.Postcode
-												}
-												size="sm"
-											/>
-										</Form.Group>
 									</Form.Row>
 									<Form.Row>
 										<Form.Group
-											as={Form.col}
-											controlId="formGridStartTime"
+											controlId="formGridWinemakerReview"
+											className="winemaker_review"
 										>
 											<Form.Label size="sm">
-												Time start from
-											</Form.Label>
-											<Form.Control
-												placeholder={
-													this.state.Postcode
-												}
-												size="sm"
-											/>
-										</Form.Group>
-										<Form.Group
-											as={Form.col}
-											controlId="formGridFinishTime"
-										>
-											<Form.Label size="sm">
-												Time finish at
-											</Form.Label>
-											<Form.Control
-												placeholder={
-													this.state.Postcode
-												}
-												size="sm"
-											/>
-										</Form.Group>
-										<Form.Group
-											as={Form.col}
-											controlId="formGridDressCode"
-										>
-											<Form.Label size="sm">
-												Dress code
-											</Form.Label>
-											<Form.Control
-												placeholder={
-													this.state.Postcode
-												}
-												size="sm"
-											/>
-										</Form.Group>
-									</Form.Row>
-									<Form.Row>
-										<Form.Group
-											as={Form.col}
-											controlId="formGridFacilities"
-										>
-											<Form.Label size="sm">
-												Facilities
-											</Form.Label>
-											<Form.Control
-												placeholder={
-													this.state.Postcode
-												}
-												size="sm"
-											/>
-										</Form.Group>
-										<Form.Group
-											as={Form.col}
-											controlId="formGridEmail"
-										>
-											<Form.Label size="sm">
-												Email
-											</Form.Label>
-											<Form.Control
-												placeholder={
-													this.state.Postcode
-												}
-												size="sm"
-											/>
-										</Form.Group>
-									</Form.Row>
-									<Form.Row>
-										<Form.Group
-											controlId="formGridDescription"
-											className="event_description"
-										>
-											<Form.Label size="sm">
-												Facilities
+												Winemaker Review
 											</Form.Label>
 											<Form.Control
 												as="textarea"
@@ -273,14 +315,101 @@ class Products extends Component {
 								</Form>
 							</div>
 						</Modal.Body>
+						<Modal.Header>
+							<Modal.Title id="contained-modal-title-vcenter">
+								Upload Product Certifications or Documents
+							</Modal.Title>
+						</Modal.Header>
+						<Modal.Body>
+							<div className="upload_documents">
+								<Form>
+									<Form.Row>
+										<Form.Group
+											className="formUploadHealthCert"
+											controlId="formGridUpHealthCert"
+										>
+											<FormFile id="formcheck-api-regular">
+												<Form.File.Label>
+													Upload Health Certification
+												</Form.File.Label>
+												<Form.File.Input
+													type="file"
+													acept="image/*"
+												/>
+											</FormFile>
+										</Form.Group>
+										<Form.Group
+											className="formUploadProductAwardDoc"
+											controlId="formGridUpProductAwardDoc"
+										>
+											<FormFile id="formcheck-api-regular">
+												<Form.File.Label>
+													Upload Product Award Doc
+												</Form.File.Label>
+												<Form.File.Input
+													type="file"
+													acept="image/*"
+												/>
+											</FormFile>
+										</Form.Group>
+										<Form.Group
+											className="formUploadBottlingCertificate"
+											controlId="formGridUpBottlingCertificate"
+										>
+											<FormFile id="formcheck-api-regular">
+												<Form.File.Label>
+													Upload Bottling Certificate
+												</Form.File.Label>
+												<Form.File.Input
+													type="file"
+													acept="image/*"
+												/>
+											</FormFile>
+										</Form.Group>
+									</Form.Row>
+									<Form.Row>
+										<Form.Group
+											className="formUploadAnalysisCertification"
+											controlId="formGridUpAnalysisCertification"
+										>
+											<FormFile id="formcheck-api-regular">
+												<Form.File.Label>
+													Upload Analysis
+													Certification
+												</Form.File.Label>
+												<Form.File.Input
+													type="file"
+													acept="image/*"
+												/>
+											</FormFile>
+										</Form.Group>
+										<Form.Group
+											className="formUploadFrontend/backendLabel"
+											controlId="formGridUpFrontend/backendLabel"
+										>
+											<FormFile id="formcheck-api-regular">
+												<Form.File.Label>
+													Upload Frontend / Backend
+													Label
+												</Form.File.Label>
+												<Form.File.Input
+													type="file"
+													acept="image/*"
+												/>
+											</FormFile>
+										</Form.Group>
+									</Form.Row>
+								</Form>
+							</div>
+						</Modal.Body>
 						<Modal.Footer>
 							<Button
 								variant="light"
-								onClick={this.cancelCreateEvent}
+								onClick={this.cancelCreateProduct}
 							>
 								Close
 							</Button>
-							<Button onClick={this.cancelCreateEvent}>
+							<Button onClick={this.cancelCreateProduct}>
 								Submit
 							</Button>
 						</Modal.Footer>

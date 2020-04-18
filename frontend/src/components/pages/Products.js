@@ -18,11 +18,25 @@ class Products extends Component {
 	state = {
 		searchKeyWord: "",
 		eventOnHide: true,
+		wine_list: [],
 	};
 
 	onChange = (value) => {
 		this.setState({ searchKeyWord: value });
 	};
+
+	async componentDidMount() {
+		try {
+			/* fetch wine list with parameter wineID and save it to state as wine_list*/
+			var url = `https://dy4v35a040.execute-api.ap-southeast-2.amazonaws.com/latest/winelist/${1}`;
+			var response = await fetch(url);
+			var data = await response.json();
+			console.log("product list", data);
+			// await this.setState({ event_data: data.date });
+		} catch (err) {
+			console.log(err);
+		}
+	}
 
 	render() {
 		return (

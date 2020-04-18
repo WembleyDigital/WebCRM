@@ -6,8 +6,17 @@
 .body {
 	position: relative;
 	display: block;
-	margin: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
 	padding-top: 5em;
+	width: 97% !important;
+}
+
+.event_btn {
+	display: inline-block;
+	// padding: 0em !important;
+	width: 35% !important;
+	text-align: center;
 }
 
 .body .btn {
