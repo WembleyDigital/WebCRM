@@ -11,17 +11,49 @@ import Table from "react-bootstrap/Table";
 import SearchField from "react-search-field";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 import "../../styles/Events.scss";
 
 class Sup_events extends Component {
-	state = {
-		searchKeyWord: "",
-		eventOnHide: true,
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			searchKeyWord: "",
+			eventOnHide: true,
+			succAlert: false,
+			failAlert: false,
+			errorMsg: "",
+			event_data: [],
+			wineries: [],
+			Name: "",
+			Date: "",
+			MaxPeople: 0,
+			Address_1: "",
+			Address_2: "",
+			City: "",
+			State: "",
+			Postcode: "",
+			StartTime: "",
+			FinishTime: "",
+			DressCode: "",
+			Facilities: "",
+			Email: "",
+			Descriptions: "",
+		};
+		this.submitCreateEvent = this.submitCreateEvent.bind(this);
+	}
 
 	onChange = (value) => {
 		this.setState({ searchKeyWord: value });
+	};
+
+	setSuccAlert = (show) => {
+		this.setState({ succAlert: show });
+	};
+
+	setFailAlert = (show, error) => {
+		this.setState({ failAlert: show, errorMsg: error });
 	};
 
 	createEvent = (event) => {
@@ -32,6 +64,25 @@ class Sup_events extends Component {
 		this.setState({ eventOnHide: true });
 	};
 
+	submitCreateEvent = (event) => {
+		try {
+			// post the state information through API to DB
+			// except the searchKeyWord, two alerts, errorMsg and eventOnHide
+			this.setState({ eventOnHide: true });
+			this.setSuccAlert(true);
+		} catch (error) {
+			this.setFailAlert(true, error);
+		}
+	};
+
+	changeCreateEvent = (event) => {
+		event.preventDefault();
+		const target = event.target;
+		const name = target.name;
+		const value = target.value;
+		this.setState({ [name]: value });
+	};
+
 	render() {
 		return (
 			<div>
@@ -39,7 +90,28 @@ class Sup_events extends Component {
 					SideBar={this.SideBar}
 					menuOpen={!this.state.eventOnHide}
 				/>
+
 				<div className="content">
+					<Alert
+						variant="success"
+						show={this.state.succAlert}
+						onClose={() => this.setSuccAlert(false)}
+						dismissible
+					>
+						<Alert.Heading>All Set!</Alert.Heading>
+						<p>You have successfully set an event!</p>
+					</Alert>
+					<Alert
+						variant="danger"
+						show={this.state.failAlert}
+						onClose={() => this.setFailAlert(false)}
+						dismissible
+					>
+						<Alert.Heading>
+							Oh snap! You got an error!
+						</Alert.Heading>
+						<p>{this.state.errorMsg}</p>
+					</Alert>
 					<Modal
 						size="lg"
 						aria-labelledby="contained-modal-title-vcenter"
@@ -68,7 +140,10 @@ class Sup_events extends Component {
 												as={Form.col}
 												placeholder={this.state.Name}
 												size="sm"
-												onChange={this.handleNameChange}
+												name="Name"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 										<Form.Group
@@ -81,9 +156,12 @@ class Sup_events extends Component {
 											<Form.Control
 												type="Date"
 												as={Form.col}
-												placeholder={this.state.Name}
+												placeholder={this.state.Date}
 												size="sm"
-												onChange={this.handleNameChange}
+												name="Date"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 										<Form.Group
@@ -96,9 +174,14 @@ class Sup_events extends Component {
 											<Form.Control
 												type="Maximum People"
 												as={Form.col}
-												placeholder={this.state.Name}
+												placeholder={
+													this.state.MaxPeople
+												}
 												size="sm"
-												onChange={this.handleNameChange}
+												name="MaxPeoPle"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 									</Form.Row>
@@ -111,8 +194,14 @@ class Sup_events extends Component {
 												Address 1
 											</Form.Label>
 											<Form.Control
-												placeholder={this.state.Address}
+												placeholder={
+													this.state.Address_1
+												}
 												size="sm"
+												name="Address_1"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 										<Form.Group
@@ -123,8 +212,14 @@ class Sup_events extends Component {
 												Address 2
 											</Form.Label>
 											<Form.Control
-												placeholder={this.state.Address}
+												placeholder={
+													this.state.Address_2
+												}
 												size="sm"
+												name="Address_2"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 										<Form.Group
@@ -137,6 +232,10 @@ class Sup_events extends Component {
 											<Form.Control
 												placeholder={this.state.City}
 												size="sm"
+												name="City"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 									</Form.Row>
@@ -150,11 +249,22 @@ class Sup_events extends Component {
 											</Form.Label>
 											<Form.Control
 												as="select"
-												value="Choose..."
 												placeholder={this.state.State}
 												size="sm"
+												name="State"
+												onSelect={
+													this.changeCreateEvent
+												}
 												// onSelect={this.handleSelectState}
 											>
+												<option
+													value=""
+													disabled
+													selected
+													hidden
+												>
+													Please Choose...
+												</option>
 												<option>Victoria</option>
 												<option>New South Wales</option>
 												<option>Tasmania</option>
@@ -177,6 +287,10 @@ class Sup_events extends Component {
 													this.state.Postcode
 												}
 												size="sm"
+												name="Postcode"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 									</Form.Row>
@@ -190,9 +304,13 @@ class Sup_events extends Component {
 											</Form.Label>
 											<Form.Control
 												placeholder={
-													this.state.Postcode
+													this.state.StartTime
 												}
 												size="sm"
+												name="StartTime"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 										<Form.Group
@@ -204,9 +322,13 @@ class Sup_events extends Component {
 											</Form.Label>
 											<Form.Control
 												placeholder={
-													this.state.Postcode
+													this.state.FinishTime
 												}
 												size="sm"
+												name="FinishTime"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 										<Form.Group
@@ -218,9 +340,13 @@ class Sup_events extends Component {
 											</Form.Label>
 											<Form.Control
 												placeholder={
-													this.state.Postcode
+													this.state.DressCode
 												}
 												size="sm"
+												name="DressCode"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 									</Form.Row>
@@ -234,9 +360,13 @@ class Sup_events extends Component {
 											</Form.Label>
 											<Form.Control
 												placeholder={
-													this.state.Postcode
+													this.state.Facilities
 												}
 												size="sm"
+												name="Facilities"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 										<Form.Group
@@ -247,10 +377,12 @@ class Sup_events extends Component {
 												Email
 											</Form.Label>
 											<Form.Control
-												placeholder={
-													this.state.Postcode
-												}
+												placeholder={this.state.Email}
 												size="sm"
+												name="Email"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 									</Form.Row>
@@ -260,15 +392,19 @@ class Sup_events extends Component {
 											className="event_description"
 										>
 											<Form.Label size="sm">
-												Facilities
+												Descriptions
 											</Form.Label>
 											<Form.Control
 												as="textarea"
 												rows="4"
 												placeholder={
-													this.state.Postcode
+													this.state.Descriptions
 												}
 												size="lg"
+												name="Descriptions"
+												onChange={
+													this.changeCreateEvent
+												}
 											/>
 										</Form.Group>
 									</Form.Row>
@@ -282,7 +418,10 @@ class Sup_events extends Component {
 							>
 								Close
 							</Button>
-							<Button onClick={this.cancelCreateEvent}>
+							<Button
+								type="submit"
+								onClick={this.submitCreateEvent}
+							>
 								Submit
 							</Button>
 						</Modal.Footer>
